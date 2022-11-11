@@ -2,6 +2,7 @@ package com.drake.net.interfaces
 
 import android.app.Dialog
 import android.app.ProgressDialog
+import androidx.activity.ComponentActivity
 import androidx.fragment.app.FragmentActivity
 import com.drake.net.R
 
@@ -12,10 +13,10 @@ fun interface NetDialogFactory {
      *
      * @param activity 请求发生所在的[FragmentActivity]
      */
-    fun onCreate(activity: FragmentActivity): Dialog
+    fun onCreate(activity: ComponentActivity): Dialog
 
     companion object DEFAULT : NetDialogFactory {
-        override fun onCreate(activity: FragmentActivity): Dialog {
+        override fun onCreate(activity: ComponentActivity): Dialog {
             val progress = ProgressDialog(activity)
             progress.setMessage(activity.getString(R.string.net_dialog_msg))
             return progress
